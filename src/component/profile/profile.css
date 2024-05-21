@@ -1,0 +1,109 @@
+.profile-page {
+  width: 100%;
+  padding-top: 100px;
+  padding-bottom: 50px;
+  min-height: 90vh;
+  background-color: hsl(72, 0%, 0%);
+  background-image: radial-gradient(at 26% 49%, hsl(275, 100%, 45%) 0px, transparent 50%), radial-gradient(at 59% 0%, hsl(272, 93%, 44%) 0px, transparent 50%), radial-gradient(at 52% 89%, hsl(275, 93%, 36%) 0px, transparent 50%);
+}
+.profile-page .container {
+  /*DELETE THIS TWO LINE*/
+  /*IF USING IMAGES*/
+  /* Change the .card-img div to .card-img img to use img*/
+}
+.profile-page .container .my-pack {
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+}
+.profile-page .container .my-pack .packs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.profile-page .container .my-pack .packs .pack {
+  text-transform: capitalize;
+  border: 3px solid rgb(93, 93, 158);
+  border-radius: 15px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.profile-page .container .my-pack .packs .pack a {
+  border: 2px solid rgb(93, 93, 158);
+  border-radius: 15px;
+  padding: 10px;
+  margin: 0 auto;
+}
+.profile-page .container .project-info {
+  padding: 100px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  top: -50px;
+}
+.profile-page .container .project-title {
+  font-weight: 500;
+  font-size: 1.5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: black;
+}
+.profile-page .container .lighter {
+  font-size: 0.9em;
+}
+.profile-page .container .flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.profile-page .container .tag {
+  font-weight: lighter;
+  color: grey;
+}
+.profile-page .container .delete {
+  background-color: #b2b2fd;
+}
+.profile-page .container .card-img div {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile-page .container .card-img div img {
+  width: 100px;
+}
+.profile-page .container .card {
+  background-color: white;
+  color: black;
+  width: 300px;
+  max-height: 330px;
+  border-radius: 8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  margin: 40px auto;
+}
+.profile-page .container .card-img {
+  position: relative;
+  top: -20px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+}
+.profile-page .container .card-img a,
+.profile-page .container .card-img div {
+  height: 150px;
+  width: 90%;
+  /* Change this width here to change the width of the color/image */
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 8px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.profile-page .container .card-imgs {
+  transition: all 0.5s;
+}/*# sourceMappingURL=profile.css.map */

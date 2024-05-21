@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 
 import './landing.css'
 const Landing = () => {
+
+
   return (
     <div className="landing">
         <img src={backGround} alt=""  className='backGround'/>

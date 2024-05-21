@@ -1,0 +1,130 @@
+.stage-questions {
+  width: 100%;
+  padding-top: 100px;
+  padding-bottom: 50px;
+  min-height: 90vh;
+  background-color: hsl(72, 0%, 0%);
+  background-image: radial-gradient(at 26% 49%, hsl(275, 100%, 45%) 0px, transparent 50%), radial-gradient(at 59% 0%, hsl(272, 93%, 44%) 0px, transparent 50%), radial-gradient(at 52% 89%, hsl(275, 93%, 36%) 0px, transparent 50%);
+}
+.stage-questions .container {
+  text-transform: capitalize;
+}
+.stage-questions .container h1 {
+  color: white;
+}
+.stage-questions .container .question {
+  background-color: white;
+  color: black;
+  padding: 15px;
+  border-radius: 15px;
+}
+.stage-questions .container .ques-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+.stage-questions .container .ques-bottom .left {
+  width: 45%;
+}
+.stage-questions .container .ques-bottom .left img {
+  width: 100%;
+  border-radius: 15px;
+}
+.stage-questions .container .ques-bottom .right {
+  width: 45%;
+}
+.stage-questions .container .ques-bottom .right .radio-group {
+  display: flex;
+  flex-direction: column;
+}
+.stage-questions .container .ques-bottom .right .radio-label {
+  display: flex;
+  align-items: center;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+.stage-questions .container .ques-bottom .right .radio-label:hover {
+  background-color: #e6e6e6;
+}
+.stage-questions .container .ques-bottom .right .radio-input {
+  position: absolute;
+  opacity: 0;
+}
+.stage-questions .container .ques-bottom .right .radio-input:checked + .radio-label {
+  background-color: #ffc3c3;
+  border-color: #ff1111;
+}
+.stage-questions .container .ques-bottom .right .radio-input:focus + .radio-label {
+  outline: 2px solid #ff1111;
+}
+.stage-questions .container .ques-bottom .right .radio-inner-circle {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 2px solid #888;
+  border-radius: 50%;
+  margin-right: 0.5em;
+  transition: border-color 0.2s;
+  position: relative;
+}
+.stage-questions .container .ques-bottom .right .radio-label:hover .radio-inner-circle {
+  border-color: #555;
+}
+.stage-questions .container .ques-bottom .right .radio-input:checked + .radio-label .radio-inner-circle {
+  border-color: #ff1111;
+}
+.stage-questions .container .ques-bottom .right .radio-input:checked + .radio-label .radio-inner-circle::after {
+  content: "";
+  display: block;
+  width: 0.5em;
+  height: 0.5em;
+  background-color: #ff1111;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.time {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.button.active {
+  background-color: #ff6f61;
+  color: white;
+}
+.button.inactive {
+  background-color: #61ff6f;
+  color: white;
+}
+.button:hover {
+  background-color: #555;
+  color: white;
+}/*# sourceMappingURL=stage.css.map */

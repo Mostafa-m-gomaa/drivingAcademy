@@ -1,0 +1,147 @@
+.stage-questions{
+    width: 100%;
+    padding-top:100px ;
+    padding-bottom: 50px;
+    min-height: 90vh;
+    background-color:hsla(72,0%,0%,1);
+background-image:
+radial-gradient(at 26% 49%, hsla(275,100%,45%,1) 0px, transparent 50%),
+radial-gradient(at 59% 0%, hsla(272,93%,44%,1) 0px, transparent 50%),
+radial-gradient(at 52% 89%, hsla(275,93%,36%,1) 0px, transparent 50%);
+.container{
+    text-transform: capitalize;
+    h1{
+        color: white;
+    }
+    .question{
+        background-color: white;
+        color: black;
+        padding: 15px;
+        border-radius: 15px;
+    }
+    .ques-bottom{
+        display: flex;
+        justify-content: space-between;
+
+        .left{
+            width: 45%;  
+            img{
+                width: 100%;
+                border-radius: 15px;
+            }
+              }
+              .right{
+                width: 45%;
+                .radio-group {
+                    display: flex;
+                    flex-direction: column;
+                  }
+                  
+                  .radio-label {
+                    display: flex;
+                    align-items: center;
+                    padding: 0.5em;
+                    margin-bottom: 0.5em;
+                    background-color: #fff;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    transition: background-color 0.2s, border-color 0.2s;
+                  }
+                  
+                  .radio-label:hover {
+                    background-color: #e6e6e6;
+                  }
+                  
+                  .radio-input {
+                    position: absolute;
+                    opacity: 0;
+                  }
+                  
+                  .radio-input:checked + .radio-label {
+                    background-color: #ffc3c3;
+                    border-color: #ff1111;
+                  }
+                  
+                  .radio-input:focus + .radio-label {
+                    outline: 2px solid #ff1111;
+                  }
+                  
+                  .radio-inner-circle {
+                    display: inline-block;
+                    width: 1em;
+                    height: 1em;
+                    border: 2px solid #888;
+                    border-radius: 50%;
+                    margin-right: 0.5em;
+                    transition: border-color 0.2s;
+                    position: relative;
+                  }
+                  
+                  .radio-label:hover .radio-inner-circle {
+                    border-color: #555;
+                  }
+                  
+                  .radio-input:checked + .radio-label .radio-inner-circle {
+                    border-color: #ff1111;
+                  }
+                  
+                  .radio-input:checked + .radio-label .radio-inner-circle::after {
+                    content: '';
+                    display: block;
+                    width: 0.5em;
+                    height: 0.5em;
+                    background-color: #ff1111;
+                    border-radius: 50%;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                  }
+              }
+    }
+}
+}
+
+
+.timer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  
+  .time {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  .buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  
+    &.active {
+      background-color: #ff6f61;
+      color: white;
+    }
+  
+    &.inactive {
+      background-color: #61ff6f;
+      color: white;
+    }
+  
+    &:hover {
+      background-color: #555;
+      color: white;
+    }
+  }

@@ -14,76 +14,105 @@ import shape from "../../assets/undraw_electric_car_b7hl.png";
 
 const Login = () => {
   const history = useNavigate();
-  const { route ,setLoader ,setLogin} = useContext(AppContext);
+  const { route ,setLoader ,setLogin ,login} = useContext(AppContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isOnline, setIsOnline] = useState(navigator.onLine);
+ 
+  const [signEmail, setSignEmail] = useState("");
+  const [signPassword, setSignPassword] = useState("");
+  const [signPasswordConfirm, setSignPasswordConfirm] = useState("");
+  const [signName, setSignName] = useState("");
+  const [country, setCountry] = useState("");
 
-  useEffect(() => {
-    const handleOnlineStatusChange = () => {
-      setIsOnline(navigator.onLine);
-    };
+  // useEffect(() => {
+  //   const handleOnlineStatusChange = () => {
+  //     setIsOnline(navigator.onLine);
+  //   };
 
-    window.addEventListener('online', handleOnlineStatusChange);
-    window.addEventListener('offline', handleOnlineStatusChange);
+  //   window.addEventListener('online', handleOnlineStatusChange);
+  //   window.addEventListener('offline', handleOnlineStatusChange);
 
-    return () => {
-      window.removeEventListener('online', handleOnlineStatusChange);
-      window.removeEventListener('offline', handleOnlineStatusChange);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener('online', handleOnlineStatusChange);
+  //     window.removeEventListener('offline', handleOnlineStatusChange);
+  //   };
+  // }, []);
 
   const handleLogin = async (event) => {
-   
     event.preventDefault();
-    setLoader(true);
-   if(!isOnline){
-      toast.error("you are offline")
-      setLoader(false)
-    }
+    setLoader(true)
+  
+    
     try {
-      const response = await fetch(`${route}/api/auth/login`, {
-        method: "POST",
-        body: JSON.stringify({
-          org_name: email,
-          password: password,
-        }),
+      const response = await fetch(`${route}/auth/login`, {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
-      }).then((res) => res.json());
-      console.log(response);
-      setLoader(false);
-      if (response.user && response.user.canWork === 0) {
-        toast.error("الحساب الخاص بك معطل يرجي التواصل مع الادارة");
-      } else {
-        if (response.token) {
-          sessionStorage.setItem("token", response.token);
-          sessionStorage.setItem("login", true);
-          if (response.user) {
-            sessionStorage.setItem("email", response.user.email);
-            sessionStorage.setItem("name", response.user.org_name);
-            sessionStorage.setItem("id", response.user.id);
-            sessionStorage.setItem("role", response.user.role);
-            sessionStorage.setItem("phone", response.user.phone);
-            sessionStorage.setItem("logo", response.user.logo);
-            if (response.user.role === 1) {
-              history("/admin");
-            } else if (response.user.role === 0) {
-              history("/goals");
-            }
-          }
-          setLogin(true);
-        } else if(response.error ==="Invalid credentials") {
-          toast.error("البريد الالكتروني او كلمة المرور غير صحيحة");
-          
-        }
-      }
+        body: JSON.stringify({email:email ,password:password}),
+      })
+      .then(res=>res.json())
+      console.log(response)
+       setLoader(false)
+      if (response.token) {
+        sessionStorage.setItem("login",true)
+        sessionStorage.setItem("token",response.token)
+        sessionStorage.setItem("userName",response.data.name)
+        sessionStorage.setItem("id",response.data.id)
+        sessionStorage.setItem("email",response.data.email)
+      
+        history("/")
+        setLogin(true)
+      } 
 
+      
+      else {
+     toast.error(response.error)
+       }
     } catch (error) {
-      console.error(error);
+      console.error("dd");
+    
     }
   };
+  const handleSign = async (event) => {
+    event.preventDefault();
+    setLoader(true)
+  
+    
+    try {
+      const response = await fetch(`${route}/auth/signup`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({email:signEmail ,password:signPassword,name:signName,country:country , passwordConfirm:signPasswordConfirm }),
+      })
+      .then(res=>res.json())
+      console.log(response)
+       setLoader(false)
+      if (response.token) {
+  
+  toast.success("Account created successfully Please login to continue")    
+  
+      } 
+
+      
+      else {
+     toast.error(response.error)
+       }
+    } catch (error) {
+      console.error("dd");
+    
+    }
+  };
+
+  useEffect(()=>{
+    if (sessionStorage.getItem("token")) {
+   history("/")
+   toast.error("please logout first")
+    }
+  },[])
 
   return (
     <div className="login">
@@ -98,18 +127,20 @@ const Login = () => {
                <div className="flip-card__inner">
                   <div className="flip-card__front">
                      <div className="title">Log in</div>
-                     <form className="flip-card__form" action="">
-                        <input className="flip-card__input" name="email" placeholder="Email" type="email" />
-                        <input className="flip-card__input" name="password" placeholder="Password" type="password" />
+                     <form className="flip-card__form" onSubmit={handleLogin} >
+                        <input className="flip-card__input" name="email" placeholder="Email" type="email" onChange={(e)=>setEmail(e.target.value)} />
+                        <input className="flip-card__input" name="password" placeholder="Password" type="password" onChange={(e)=>setPassword(e.target.value)} />
                         <button className="flip-card__btn">Let`s go!</button>
                      </form>
                   </div>
                   <div className="flip-card__back">
                      <div className="title">Sign up</div>
-                     <form className="flip-card__form" action="">
-                        <input className="flip-card__input" placeholder="Name" type="name" />
-                        <input className="flip-card__input" name="email" placeholder="Email" type="email" />
-                        <input className="flip-card__input" name="password" placeholder="Password" type="password" />
+                     <form className="flip-card__form" onSubmit={handleSign} >
+                        <input className="flip-card__input" placeholder="Name" onChange={(e)=>setSignName(e.target.value)} type="name" />
+                        <input className="flip-card__input" name="email" placeholder="Email" onChange={(e)=>setSignEmail(e.target.value)} type="email" />
+                        <input className="flip-card__input" name="password" placeholder="Password" onChange={(e)=>setSignPassword(e.target.value)} type="password" />
+                        <input className="flip-card__input" name="password" placeholder="Confirm Password" onChange={(e)=>setSignPasswordConfirm(e.target.value)} type="password" />
+                        <input className="flip-card__input" name="Country" placeholder="Country" type="text" onChange={(e)=>setCountry(e.target.value)} />
                         <button className="flip-card__btn">Confirm!</button>
                      </form>
                   </div>

@@ -1,0 +1,43 @@
+.get-pack {
+  width: 100%;
+  padding-top: 100px;
+  height: 90vh;
+  background-color: hsl(72, 0%, 0%);
+  background-image: radial-gradient(at 26% 49%, hsl(275, 100%, 45%) 0px, transparent 50%), radial-gradient(at 59% 0%, hsl(272, 93%, 44%) 0px, transparent 50%), radial-gradient(at 52% 89%, hsl(275, 93%, 36%) 0px, transparent 50%);
+}
+.get-pack .container {
+  color: white;
+}
+.get-pack .container .exams {
+  background-color: rgba(255, 255, 255, 0.63);
+  color: black;
+  border-radius: 15px;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.get-pack .container .exams .exam {
+  background-color: white;
+  padding: 10px;
+  border: 2px solid rgb(93, 93, 158);
+  border-radius: 15px;
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  min-width: 25%;
+}
+.get-pack .container .exams .exam a {
+  border: 2px solid rgb(93, 93, 158);
+  border-radius: 15px;
+  padding: 10px;
+  margin: 0 auto;
+  transition: 0.2s;
+}
+.get-pack .container .exams .exam a:hover {
+  background-color: rgb(93, 93, 158);
+  color: white;
+}/*# sourceMappingURL=getpack.css.map */
