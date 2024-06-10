@@ -1,3 +1,4 @@
+@import "../helpers/mixins";
 .header{
     width: 100%;
     position: fixed;
@@ -8,12 +9,47 @@
         justify-content: space-between;
         align-items: center;
         padding: 15px 0;
+
+        @include media(mopile){
+          position: relative;
+     
+  
+                         }
+       
         img{
-            width: 100px;
+            width: 70px;
             border-radius: 50%;
+            @include media(mopile){
+           width: 50px;
+                
+                                       }
+           
+        }
+        .burger{
+          display: none;
+          @include media(mopile){
+  display: block;
+  background-color: white;
+  // padding: 20px;
+  border-radius: 50%;
+  width: 50px;
+    
+                           }
         }
         .links{
-         
+          @include media(mopile){
+            flex-direction: column;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.959);
+            bottom: -350px;
+            padding: 15px;
+            border-radius: 15px;
+            left: -150%;
+            transform: translateX(-50%);
+            width: 50%;
+            transition: 0.3s;
+            
+                           }
             display: flex;
             gap: 15px;
             align-items: center;
@@ -71,5 +107,9 @@
                 }
               }
         }
+    }
+    
+    .links-active{
+      left: 50% !important;
     }
 }

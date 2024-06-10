@@ -1,0 +1,52 @@
+.stage-two {
+  width: 100%;
+  padding-top: 100px;
+  padding-bottom: 50px;
+  min-height: 90vh;
+  background-color: hsl(72, 0%, 0%);
+  background-image: radial-gradient(at 26% 49%, hsl(275, 100%, 45%) 0px, transparent 50%), radial-gradient(at 59% 0%, hsl(272, 93%, 44%) 0px, transparent 50%), radial-gradient(at 52% 89%, hsl(275, 93%, 36%) 0px, transparent 50%);
+}
+.stage-two .container {
+  background-color: rgba(255, 255, 255, 0.822);
+  border-radius: 15px;
+  text-transform: capitalize;
+  padding: 80px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+.stage-two .btn {
+  width: 6.5em;
+  height: 2.3em;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 0.625em;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  text-align: center;
+}
+.stage-two .btn:hover {
+  color: black;
+}
+.stage-two .btn:after {
+  content: "";
+  background: white;
+  position: absolute;
+  z-index: -1;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.5s;
+}
+.stage-two .btn:hover:after {
+  transform: skewX(-45deg) scale(1, 1);
+  transition: all 0.5s;
+}/*# sourceMappingURL=st.css.map */

@@ -1,13 +1,14 @@
 
-import './stage.css'
+import '../stage1Questions/stage.css'
 import React, { useEffect } from 'react'
 import { useContext } from 'react'
 import { AppContext } from '../../App'
 import { useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
-const StageOne = () => {
-    const {route ,lang ,login , setLoader ,filesRoute ,answers, setAnswers ,setExams} = useContext(AppContext)
+const StageThreeQues = () => {
+    const {route ,lang ,login , setLoader ,filesRoute ,answers, setAnswers , exams} = useContext(AppContext)
     const param =useParams()
     const [quesIndex,setQuesIndex]=useState(0)
     const [stageLength,setStageLength]=useState(0)
@@ -22,12 +23,16 @@ const StageOne = () => {
         const answerIndex = updatedAnswers.findIndex((ans) => ans.questionId === questionId);
         if (answerIndex >= 0) {
           updatedAnswers[answerIndex].answer = answer;
+         
         } else {
           updatedAnswers.push({ questionId, answer });
+         
           if(quesIndex === stageLength-1){
-history(`/stage2/${param.id}`)
+// history(`/stage3/${param.id}`)
+handleSubmit()
 
-          }else if(quesIndex < stageLength-1){
+          }
+          else if(quesIndex < stageLength-1){
 setQuesIndex(quesIndex+1)
           }
         }
@@ -35,28 +40,82 @@ setQuesIndex(quesIndex+1)
      
       });
     };
+  
+
+    // const handleSubmit = () => {
+    //     console.log(`${route}/exams/submitAnswer/${param.id}`)
+
+    //     fetch(`${route}/exams/submitAnswer/${param.id}`,{
+    //       method:"PUT",
+    //       headers :{
+    // "Authorization" :`Bearer ${sessionStorage.getItem("token")}` ,
+    // "Content-Type":"application/json"
+    //       } ,
+    //         body:JSON.stringify({
+    //             lang:lang,
+    //             answers:answers
+    //         })
+    //     }
+    //     )
+    //     .then(res=>console.log(res))
     
+    // }
     
+
+    const handleSubmit = () => {
+        
+      
+        fetch(`${route}/exams/submitAnswer/${param.id}`, {
+          method: "PUT",
+          headers: {
+            "Authorization": `Bearer ${sessionStorage.getItem("token")}`,
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            lang: lang,
+            answers: answers
+          })
+        })
+        .then(res => {
+          if (!res.ok) {
+            throw new Error(`HTTP error! Status: ${res.status}`);
+          }
+          return res.json();
+        })
+        .then(data => {
+          console.log( data);
+          if(data.responseObject.questionsResult ){
+            sessionStorage.setItem("finalResult",JSON.stringify(data.responseObject.questionsResult))
+           }
+          if(data.responseObject.data === "you passed the exam"){
+toast.success("you passed the exam")
+sessionStorage.setItem("passed","yes")
+history(`/finalResult`)
+
+          }
+          else{
+            toast.error("you failed the exam")
+            sessionStorage.setItem("passed","no")
+            history(`/finalResult`)
+          }
+        })
+        .catch(error => {
+          console.error("Error submitting answer:", error);
+        });
+      };
 
     useEffect(()=>{
-        fetch(`${route}/exams/startExam/${param.id}`,{
-          headers :{
-    "Authorization" :`Bearer ${sessionStorage.getItem("token")}`
-    }
-        })
-        .then(res=>res.json())
-        .then(data=>{
-          console.log(data)
-          if(data.stage1){
-            setExams(data)
-setQuestions(data.stage1)
-setStageLength(data.stage1.length)
 
-          
- }
-        })
+if(exams.stage3){
+  setQuestions(exams.stage3)
+  setStageLength(exams.stage3.length)
+}
+else{
+  history(`/profile`)
+}
+
       },[])
-      const [seconds, setSeconds] = useState(8);
+      const [seconds, setSeconds] = useState(40);
       const [isActive, setIsActive] = useState(true);
 
       useEffect(() => {
@@ -71,13 +130,13 @@ setStageLength(data.stage1.length)
     
         if (seconds === 0) {
           clearInterval(interval);
-          console.log("time out")
+        
           if(quesIndex === stageLength-1){
-            history(`/stage2/${param.id}`)
+            console.log(answers)
             
                       }else if(quesIndex < stageLength-1){
             setQuesIndex(quesIndex+1)
-            setSeconds(8)
+            setSeconds(40)
                       }
           
       
@@ -99,7 +158,7 @@ setStageLength(data.stage1.length)
   return (
    <div className="stage-questions">
     <div className="container">
-       <h1>stage one</h1>
+       <h1>stage three</h1>
        <div className="question">
         {questions.map((ques,index)=>{ 
             let question
@@ -167,4 +226,4 @@ setStageLength(data.stage1.length)
   )
 }
 
-export default StageOne
+export default StageThreeQues

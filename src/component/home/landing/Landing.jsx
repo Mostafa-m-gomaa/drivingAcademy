@@ -1,5 +1,5 @@
 import React from 'react'
-import backGround from '../../../assets/alexandre-boucher-BNrlDv8w07Y-unsplash.jpg'
+import backGround from '../../../assets/e8f38769-8bf6-4926-98a6-043a3a53006e.jpeg'
 import logo from '../../../assets/fefef.jpeg'
 import { Link } from 'react-router-dom'
 

@@ -1,13 +1,13 @@
 
-import './stage.css'
+import '../stage1Questions/stage.css'
 import React, { useEffect } from 'react'
 import { useContext } from 'react'
 import { AppContext } from '../../App'
 import { useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 
-const StageOne = () => {
-    const {route ,lang ,login , setLoader ,filesRoute ,answers, setAnswers ,setExams} = useContext(AppContext)
+const StageTwoQues = () => {
+    const {route ,lang ,login , setLoader ,filesRoute ,answers, setAnswers , exams} = useContext(AppContext)
     const param =useParams()
     const [quesIndex,setQuesIndex]=useState(0)
     const [stageLength,setStageLength]=useState(0)
@@ -25,7 +25,7 @@ const StageOne = () => {
         } else {
           updatedAnswers.push({ questionId, answer });
           if(quesIndex === stageLength-1){
-history(`/stage2/${param.id}`)
+history(`/stage3/${param.id}`)
 
           }else if(quesIndex < stageLength-1){
 setQuesIndex(quesIndex+1)
@@ -38,25 +38,31 @@ setQuesIndex(quesIndex+1)
     
     
 
-    useEffect(()=>{
-        fetch(`${route}/exams/startExam/${param.id}`,{
-          headers :{
-    "Authorization" :`Bearer ${sessionStorage.getItem("token")}`
-    }
-        })
-        .then(res=>res.json())
-        .then(data=>{
-          console.log(data)
-          if(data.stage1){
-            setExams(data)
-setQuestions(data.stage1)
-setStageLength(data.stage1.length)
+//     useEffect(()=>{
+//         fetch(`${route}/exams/startExam/${param.id}`,{
+//           headers :{
+//     "Authorization" :`Bearer ${sessionStorage.getItem("token")}`
+//     }
+//         })
+//         .then(res=>res.json())
+//         .then(data=>{
+//           console.log(data)
+//           if(data.stage2){
+// setQuestions(data.stage2)
+// setStageLength(data.stage2.length)
 
           
- }
-        })
+//  }
+//         })
+//       },[])
+    useEffect(()=>{
+        setQuestions(exams.stage2)
+setStageLength(exams.stage2.length)
       },[])
-      const [seconds, setSeconds] = useState(8);
+
+
+
+      const [seconds, setSeconds] = useState(40);
       const [isActive, setIsActive] = useState(true);
 
       useEffect(() => {
@@ -71,13 +77,13 @@ setStageLength(data.stage1.length)
     
         if (seconds === 0) {
           clearInterval(interval);
-          console.log("time out")
+        
           if(quesIndex === stageLength-1){
-            history(`/stage2/${param.id}`)
+            history(`/stage3/${param.id}`)
             
                       }else if(quesIndex < stageLength-1){
             setQuesIndex(quesIndex+1)
-            setSeconds(8)
+            setSeconds(40)
                       }
           
       
@@ -99,7 +105,7 @@ setStageLength(data.stage1.length)
   return (
    <div className="stage-questions">
     <div className="container">
-       <h1>stage one</h1>
+       <h1>stage two</h1>
        <div className="question">
         {questions.map((ques,index)=>{ 
             let question
@@ -167,4 +173,4 @@ setStageLength(data.stage1.length)
   )
 }
 
-export default StageOne
+export default StageTwoQues

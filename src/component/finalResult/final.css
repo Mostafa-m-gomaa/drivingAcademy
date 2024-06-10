@@ -1,0 +1,84 @@
+.final-result {
+  width: 100%;
+  padding-top: 100px;
+  padding-bottom: 50px;
+  min-height: 90vh;
+  background-color: hsl(72, 0%, 0%);
+  background-image: radial-gradient(at 26% 49%, hsl(275, 100%, 45%) 0px, transparent 50%), radial-gradient(at 59% 0%, hsl(272, 93%, 44%) 0px, transparent 50%), radial-gradient(at 52% 89%, hsl(275, 93%, 36%) 0px, transparent 50%);
+}
+.final-result .container {
+  text-transform: capitalize;
+}
+.final-result .container h1 {
+  color: white;
+  text-align: center;
+}
+.final-result .container .result {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.final-result .container .result h2 {
+  color: white;
+  text-align: center;
+  text-transform: capitalize;
+}
+.final-result .container .result .stage {
+  background-color: white;
+  padding: 15px;
+  border-radius: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+@media (max-width: 767px) {
+  .final-result .container .result .stage {
+    padding: 15px 5px;
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+.final-result .container .result .stage .question {
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.final-result .container .result .stage .correct {
+  border: 6px solid rgb(26, 182, 26);
+}
+.final-result .container .result .stage .false {
+  border: 6px solid rgb(209, 21, 21);
+}
+
+.card-cont {
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.692);
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-cont .card {
+  width: 60%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 110;
+  height: 80vh;
+  padding: 15px;
+  overflow-y: scroll;
+  border-radius: 15px;
+  align-items: center;
+}
+.card-cont .card img {
+  max-width: 80%;
+  min-width: 80%;
+  border-radius: 15px;
+}/*# sourceMappingURL=final.css.map */

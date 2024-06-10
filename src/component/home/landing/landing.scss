@@ -1,6 +1,11 @@
+@import "../../helpers/mixins";
 .landing{
     height: 100vh;
     position: relative;
+    @include media(mopile){
+      min-height: 100%;
+        height: 100%;
+                       }
     &::after{
         content: '';
         position: absolute;
@@ -14,6 +19,12 @@
         width: 100%;
         height: 100%;
         position: absolute;
+        @include media(mopile){
+          top: 0;
+          left: 0;
+             
+          
+                                 }
     }
     .container{
         position: relative;
@@ -21,10 +32,15 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
-
         justify-content: center;
         align-items: center;
         height: 100%;
+        @include media(mopile){
+           
+            padding-top: 100px;
+            padding-bottom: 80px;
+         }
+      
         img{
             width: 250px;
             border-radius: 100px;

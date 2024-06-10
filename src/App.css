@@ -71,3 +71,27 @@ button{
   width: 90%;
   margin: auto;
 }
+
+::-webkit-scrollbar {
+  width: 10px; /* عرض الشريط */
+  height: 12px; /* ارتفاع الشريط */
+  
+}
+
+/* تخصيص شريط التمرير نفسه */
+::-webkit-scrollbar-thumb {
+  background: #3869c4; /* لون شريط التمرير */
+  border-radius: 3px; /* زوايا مستديرة */
+  transition: 0.3s;
+}
+
+/* تخصيص شريط التمرير عند التمرير */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* لون شريط التمرير عند التمرير */
+}
+
+/* تخصيص الخلفية الخاصة بالشريط */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* لون خلفية الشريط */
+  border-radius: 6px; /* زوايا مستديرة */
+}

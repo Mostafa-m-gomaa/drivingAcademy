@@ -1,0 +1,96 @@
+@import "../helpers/mixins";
+.final-result{
+    width: 100%;
+    padding-top:100px ;
+    padding-bottom: 50px;
+    min-height: 90vh;
+    background-color:hsla(72,0%,0%,1);
+background-image:
+radial-gradient(at 26% 49%, hsla(275,100%,45%,1) 0px, transparent 50%),
+radial-gradient(at 59% 0%, hsla(272,93%,44%,1) 0px, transparent 50%),
+radial-gradient(at 52% 89%, hsla(275,93%,36%,1) 0px, transparent 50%);
+
+.container{
+    text-transform: capitalize;
+ 
+h1{
+    color: white;
+    text-align: center;
+}
+.result{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    h2{
+        color: white;
+        text-align: center;
+        text-transform: capitalize;
+    }
+    .stage{
+        background-color: white;
+        padding: 15px;
+        border-radius: 15px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+        @include media(mopile){
+     padding: 15px 5px;
+    width: 90%;
+    margin: 0 auto;
+    }
+        .question{
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .correct{
+            border: 6px solid rgb(26, 182, 26);
+        }
+        .false{
+            border: 6px solid  rgb(209, 21, 21);
+        }
+    }
+}
+}
+
+
+}
+
+.card-cont{
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.692);
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .card {
+        width: 60%;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        // position: fixed;
+        // top: 50%;
+        // left: 50%;
+        // transform: translate(-50%,-50%);
+        z-index: 110;
+        height: 80vh;
+        padding: 15px;
+        overflow-y: scroll;
+        border-radius: 15px;
+        align-items: center;
+        
+        img{
+            max-width: 80%;
+            min-width: 80%;
+            border-radius: 15px;
+        }
+    }
+    }
+
