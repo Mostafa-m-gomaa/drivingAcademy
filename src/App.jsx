@@ -19,6 +19,7 @@ import StageThreeQues from "./component/stageThreeQues/StageThreeQues";
 import FinalResult from "./component/finalResult/FinalResult";
 import StageOneText from "./component/stageOneText/StageOneText";
 import { useTranslation } from 'react-i18next';
+import Footer from "./component/footer/Footer";
 export const AppContext = createContext();
 
 function App() {
@@ -93,6 +94,7 @@ function App() {
        
 
     </Routes>
+    <Footer />
  
 
     </>

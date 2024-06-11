@@ -1,0 +1,14 @@
+.footer {
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+.footer div {
+  padding: 10px 0;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+}
+.footer div a {
+  color: rgb(22, 185, 190);
+  font-weight: bolder;
+}/*# sourceMappingURL=footer.css.map */
