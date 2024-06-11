@@ -2,9 +2,11 @@ import React from 'react'
 import backGround from '../../../assets/e8f38769-8bf6-4926-98a6-043a3a53006e.jpeg'
 import logo from '../../../assets/fefef.jpeg'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next';
 
 import './landing.css'
 const Landing = () => {
+  const { t, i18n } = useTranslation();
 
 
   return (
@@ -18,8 +20,8 @@ const Landing = () => {
 <div className="txt" data-aos="fade-up"
      data-aos-duration="3000">
 <h1>Theorie haast</h1>
- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur nisi perspiciatis voluptate accusamus. Facilis pariatur enim non atque aut deleniti tempore, fugit, iste nihil quidem optio assumenda asperiores earum suscipit?</p>
-<Link to="/login" className='btn'>Start Now</Link>
+ <p>{t('landing')}</p>
+<Link to="/login" className='btn'>{t('start')}</Link>
  </div> 
        </div>
     </div>

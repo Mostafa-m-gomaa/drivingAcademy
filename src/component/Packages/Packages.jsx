@@ -6,9 +6,15 @@ import './packs.css'
 import { Link } from 'react-router-dom'
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useTranslation } from 'react-i18next';
 const Packages = () => {
     const [packages,setPackages]=useState([])
     const {route ,lang ,login , setLoader} = useContext(AppContext)
+    const { t, i18n } = useTranslation();
+    
+
+
+
 
     useEffect(()=>{
         fetch(`${route}/packages`,{
@@ -53,7 +59,7 @@ fetch(`${route}/subscriptions/checkoutSession/${id}`,{
   <div className="packages">
     {/* <img className='road' src={road} alt="" /> */}
     <div className="container">
-       <h1>our packages</h1>
+       <h1>{t('ourPack')}</h1>
        <div className="packs">
          {packages.map(pack=>{
             let title ,description 
@@ -75,7 +81,7 @@ fetch(`${route}/subscriptions/checkoutSession/${id}`,{
             <h2>{title}</h2>   
             <p>{description}</p>
             <div className="dur">for {pack.duration} days</div>
-            <Link to={`/login`} onClick={(e)=>buyPackage(e,pack._id)} class="button2">buy now</Link>
+            <Link to={`/login`} onClick={(e)=>buyPackage(e,pack._id)} class="button2">{t('buyNow')}</Link>
 
               
          

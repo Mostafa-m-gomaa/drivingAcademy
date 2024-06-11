@@ -5,11 +5,13 @@ import { useContext } from 'react'
 import { AppContext } from '../../App'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next';
 
 
 const Profile = () => {
     const {route ,lang ,login , setLoader} = useContext(AppContext)
     const [subscriptions,setSubscriptions]=useState([])
+    const { t, i18n } = useTranslation();
     useEffect(()=>{
         fetch(`${route}/subscriptions/mySubscriptions`,{
           headers :{
@@ -43,7 +45,7 @@ const Profile = () => {
   </div>
 </article>
 <div className="my-pack">
-    <h1>My Packages</h1>
+    <h1>{t('myPack')}</h1>
     <div className="packs">
         {subscriptions.map(pack=>{
             let title 
@@ -64,7 +66,7 @@ const Profile = () => {
           
             
             <p>End date : {pack.expiresAt}</p>
-            <Link to={`/exams/${pack.package._id}`}>Exams</Link>
+            <Link to={`/exams/${pack.package._id}`}>{t('exams')}</Link>
         </div>
         })}
     </div>

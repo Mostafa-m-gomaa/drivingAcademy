@@ -5,6 +5,7 @@ import { useContext } from 'react'
 import { AppContext } from '../../App'
 import { useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next';
 
 const StageTwoQues = () => {
     const {route ,lang ,login , setLoader ,filesRoute ,answers, setAnswers , exams} = useContext(AppContext)
@@ -15,6 +16,7 @@ const StageTwoQues = () => {
     const [showTimer,setShowTimer]=useState(true) 
     const history = useNavigate()
     // const [answers,setAnswers]=useState([])
+    const { t, i18n } = useTranslation();
 
     const handleAnswerSelect = (questionId, answer) => {
       setAnswers((prevAnswers) => {
@@ -105,7 +107,7 @@ setStageLength(exams.stage2.length)
   return (
    <div className="stage-questions">
     <div className="container">
-       <h1>stage two</h1>
+       <h1>{t('stTwo')}</h1>
        <div className="question">
         {questions.map((ques,index)=>{ 
             let question

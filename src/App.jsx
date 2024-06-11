@@ -18,9 +18,11 @@ import StageThreeTxt from "./component/stage3Text/Stage3Text";
 import StageThreeQues from "./component/stageThreeQues/StageThreeQues";
 import FinalResult from "./component/finalResult/FinalResult";
 import StageOneText from "./component/stageOneText/StageOneText";
+import { useTranslation } from 'react-i18next';
 export const AppContext = createContext();
 
 function App() {
+  const { t, i18n } = useTranslation();
   const [login, setLogin] = useState(false);
   const [token, setToken] = useState("");
   const [loader, setLoader] = useState(false);
@@ -29,7 +31,18 @@ function App() {
   const [lang, setLang] = useState("en");
   const [answers,setAnswers]=useState([])
   const [exams,setExams]=useState({})
+  const changeLanguage = (language) => {
+    i18n.changeLanguage(language);
+  };
+  useEffect(()=>{
+    if(sessionStorage.getItem("lang")){
+      changeLanguage(sessionStorage.getItem("lang"))
+      setLang(sessionStorage.getItem("lang"))
+    }
+
+  },[lang])
   useEffect(() => {
+ 
     if (sessionStorage.getItem("token")) {
       setToken(localStorage.getItem("token"));
       setLogin(true);

@@ -6,6 +6,7 @@ import { AppContext } from '../../App'
 import { useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { useTranslation } from 'react-i18next';
 
 const StageThreeQues = () => {
     const {route ,lang ,login , setLoader ,filesRoute ,answers, setAnswers , exams} = useContext(AppContext)
@@ -16,6 +17,7 @@ const StageThreeQues = () => {
     const [showTimer,setShowTimer]=useState(true) 
     const history = useNavigate()
     // const [answers,setAnswers]=useState([])
+    const { t, i18n } = useTranslation();
 
     const handleAnswerSelect = (questionId, answer) => {
       setAnswers((prevAnswers) => {
@@ -158,7 +160,7 @@ else{
   return (
    <div className="stage-questions">
     <div className="container">
-       <h1>stage three</h1>
+       <h1>{t('stThree')}</h1>
        <div className="question">
         {questions.map((ques,index)=>{ 
             let question

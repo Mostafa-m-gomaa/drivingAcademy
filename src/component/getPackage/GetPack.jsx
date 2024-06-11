@@ -4,9 +4,11 @@ import { useContext } from 'react'
 import { AppContext } from '../../App'
 import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next';
 
 
 const GetPack = () => {
+     const { t, i18n } = useTranslation();
     const {route ,lang ,login , setLoader} = useContext(AppContext)
     const param =useParams()
     const [exams,setExams]=useState([])
@@ -30,7 +32,7 @@ const GetPack = () => {
   return (
     <div className="get-pack">
         <div className="container">
-           <h1>Exams</h1>
+           <h1>{t('exams')}</h1>
            <div className="exams">
                 {exams.map(exam=>{
                      let title ,description 
@@ -50,8 +52,8 @@ const GetPack = () => {
                           <div className="exam">
                             <h3>{title}</h3>
                             <p>{description}</p>
-                            <div className="padd">pass degree {exam.passDegree}</div>
-                            <Link to={`/stageOne/${exam._id}`} className="btn">Start Exam</Link>
+                            <div className="padd">{t('pass')} {exam.passDegree}</div>
+                            <Link to={`/stageOne/${exam._id}`} className="btn">{t('startEx')}</Link>
                           </div>
                      )
                 })}

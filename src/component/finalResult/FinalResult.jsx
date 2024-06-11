@@ -1,6 +1,7 @@
 import React, { useContext, useEffect , useState} from 'react'
 import { AppContext } from '../../App'
 import './final.css'
+import { useTranslation } from 'react-i18next';
 
 const FinalResult = () => {
     const {lang ,filesRoute}=useContext(AppContext)
@@ -11,6 +12,7 @@ const FinalResult = () => {
     const [question,setQuestion]=useState("")
     const [stage,setStage]=useState(0)
     const [urAnswer,setUrAnswer]=useState("")
+    const { t, i18n } = useTranslation();
 
     const handleShowCard=(image,answer,question,stage,yournswer)=>{
         setImage(image)
@@ -39,9 +41,9 @@ const FinalResult = () => {
         </div>
         </div> : null}
         <div className="container">
-            <h1>Final Result</h1>
+            <h1>{t('final')}</h1>
             <div className="result">
-                <h2>stage one</h2>
+                <h2>{t('stOne')}</h2>
                 <div className="stage">
                 {questions.map((que)=>{
           let question
@@ -66,7 +68,7 @@ if(que.stage === 1){
 }
        })}
                 </div>
-                <h2>stage two</h2>
+                <h2>{t('stTwo')}</h2>
                 <div className="stage">
                 {questions.map((que)=>{
           let question
@@ -91,7 +93,7 @@ if(que.stage === 2){
 }
        })}
                 </div>
-                <h2>stage three</h2>
+                <h2>{t('stThree')}</h2>
                 <div className="stage">
                 {questions.map((que)=>{
           let question
