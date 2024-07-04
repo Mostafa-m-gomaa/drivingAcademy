@@ -1,0 +1,60 @@
+.contact {
+  width: 100%;
+  padding-top: 100px;
+  padding-bottom: 50px;
+  min-height: 90vh;
+  background-color: hsl(72, 0%, 0%);
+  background-image: radial-gradient(at 26% 49%, hsl(275, 100%, 45%) 0px, transparent 50%), radial-gradient(at 59% 0%, hsl(272, 93%, 44%) 0px, transparent 50%), radial-gradient(at 52% 89%, hsl(275, 93%, 36%) 0px, transparent 50%);
+}
+.contact .form {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+  width: 70%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 30px 30px -30px rgba(27, 26, 26, 0.315);
+  margin: auto;
+}
+.contact .form .title {
+  color: royalblue;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contact .form input {
+  outline: 0;
+  border: 1px solid rgb(219, 213, 213);
+  padding: 8px 14px;
+  border-radius: 8px;
+  height: 50px;
+  width: 90%;
+}
+.contact .form textarea {
+  border-radius: 8px;
+  height: 100px;
+  width: 90%;
+  resize: none;
+  outline: 0;
+  padding: 8px 14px;
+  border: 1px solid rgb(219, 213, 213);
+}
+.contact .form button {
+  align-self: flex-end;
+  padding: 8px;
+  outline: 0;
+  border: 0;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: royalblue;
+  color: #fff;
+  cursor: pointer;
+}/*# sourceMappingURL=contact.css.map */

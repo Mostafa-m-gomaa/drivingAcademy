@@ -21,5 +21,7 @@
     "stOne" : " Stage One",
     "stTwo" : " Stage Two",
     "stThree" : "Stage Three" ,
-     "final" : " Final Result"
+     "final" : " Final Result" ,
+     "appointment" : "Appointment with the translator"
+
 }

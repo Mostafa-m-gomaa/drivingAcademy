@@ -2,8 +2,9 @@
 .packages{
     width: 100%;
     padding-top:100px ;
+    padding-bottom: 50px;
 
-    height: 90vh;
+    min-height: 90vh;
     background-color:hsla(72,0%,0%,1);
 background-image:
 radial-gradient(at 26% 49%, hsla(275,100%,45%,1) 0px, transparent 50%),
@@ -39,7 +40,7 @@ padding: 80px 0 40px 0;}
         
 
 .card_box {
-    width: 200px;
+    width: 300px;
     height: 250px;
     border-radius: 20px;
     background: linear-gradient(170deg, rgba(58, 56, 56, 0.623) 0%, rgb(31, 31, 31) 100%);

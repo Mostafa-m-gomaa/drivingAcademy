@@ -6,12 +6,16 @@ import { AppContext } from '../../App'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next';
+import { toast } from 'react-toastify'
 
 
 const Profile = () => {
     const {route ,lang ,login , setLoader} = useContext(AppContext)
     const [subscriptions,setSubscriptions]=useState([])
     const { t, i18n } = useTranslation();
+    const [password ,setPassword]=useState("")
+    const [newPassword ,setNewPassword]=useState("")
+    const [confirmPassword ,setConfirmPassword]=useState("")
     useEffect(()=>{
         fetch(`${route}/subscriptions/mySubscriptions`,{
           headers :{
@@ -26,6 +30,35 @@ const Profile = () => {
           }
         })
       },[])
+
+      const changePassword = async (event) => {
+        event.preventDefault();
+        setLoader(true)
+      
+        
+        try {
+          const response = await fetch(`${route}/users/changeMyPassword`, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization :`Bearer ${sessionStorage.getItem("token")}`
+            },
+            body: JSON.stringify({currentPassword:password ,password:newPassword ,passwordConfirm:confirmPassword}),
+          })
+          .then(res=>res.json())
+          console.log(response)
+           setLoader(false)
+           if(response.token){
+     toast.success("Password Changed Successfully")
+            }
+          else if(response.status ==="fail"){
+     toast.success(response.message)
+            }
+        } catch (error) {
+          console.error("dd");
+        
+        }
+      };
   return (
    <div className="profile-page">
     <div className="container">
@@ -71,6 +104,30 @@ const Profile = () => {
         })}
     </div>
 </div>
+<div class="form-container">
+      <div class="logo-container">
+       Change Password
+      </div>
+
+      <form class="form" onSubmit={changePassword}>
+        <div class="form-group">
+          <label for="email">Current Password</label>
+          <input type="text" required="" onChange={(e)=>setPassword(e.target.value)} />
+        </div>
+        <div class="form-group">
+          <label for="email">New Password</label>
+          <input type="text" required="" onChange={(e)=>setNewPassword(e.target.value)} />
+        </div>
+        <div class="form-group">
+          <label for="email">Confirm Password</label>
+          <input type="text" required="" onChange={(e)=>setConfirmPassword(e.target.value)} />
+        </div>
+
+        <button class="form-submit-btn" type="submit">Change</button>
+      </form>
+
+  
+    </div>
 
     </div>
    </div>

@@ -20,6 +20,8 @@ import FinalResult from "./component/finalResult/FinalResult";
 import StageOneText from "./component/stageOneText/StageOneText";
 import { useTranslation } from 'react-i18next';
 import Footer from "./component/footer/Footer";
+import Contact from "./component/contact/Contact";
+import Appoint from "./component/appointment/Appoint";
 export const AppContext = createContext();
 
 function App() {
@@ -81,6 +83,8 @@ function App() {
     <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/appoint" element={<Appoint />} />
           <Route path="/packages" element={<Packages />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/finalResult" element={<FinalResult />} />

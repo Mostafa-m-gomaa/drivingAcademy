@@ -1,0 +1,138 @@
+.appoint {
+  width: 100%;
+  padding-top: 100px;
+  padding-bottom: 50px;
+  min-height: 90vh;
+  background-color: hsl(72, 0%, 0%);
+  background-image: radial-gradient(at 26% 49%, hsl(275, 100%, 45%) 0px, transparent 50%), radial-gradient(at 59% 0%, hsl(272, 93%, 44%) 0px, transparent 50%), radial-gradient(at 52% 89%, hsl(275, 93%, 36%) 0px, transparent 50%);
+}
+.appoint .form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+  margin: 60px auto;
+  width: 50%;
+}
+@media (max-width: 767px) {
+  .appoint .form {
+    width: 90%;
+  }
+}
+.appoint .title {
+  font-size: 28px;
+  color: royalblue;
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+}
+.appoint .title::before, .appoint .title::after {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  left: 0px;
+  background-color: royalblue;
+}
+.appoint .title::before {
+  width: 18px;
+  height: 18px;
+  background-color: royalblue;
+}
+.appoint .title::after {
+  width: 18px;
+  height: 18px;
+  animation: pulse 1s linear infinite;
+}
+.appoint .message, .appoint .signin {
+  color: rgba(88, 87, 87, 0.822);
+  font-size: 14px;
+}
+.appoint .signin {
+  text-align: center;
+}
+.appoint .signin a {
+  color: royalblue;
+}
+.appoint .signin a:hover {
+  -webkit-text-decoration: underline royalblue;
+          text-decoration: underline royalblue;
+}
+.appoint .form label {
+  position: relative;
+  width: 90%;
+  margin: auto;
+  text-align: center;
+}
+.appoint .flex {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  width: 90%;
+  margin: auto;
+}
+.appoint .flex label {
+  width: 48% !important;
+}
+.appoint .form label .input {
+  width: 90%;
+  padding: 10px 10px 20px 10px;
+  outline: 0;
+  border: 1px solid rgba(105, 105, 105, 0.397);
+  border-radius: 10px;
+}
+.appoint .form label .input + span {
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  color: grey;
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+.appoint .form label .input:-moz-placeholder-shown + span {
+  top: 15px;
+  font-size: 0.9em;
+}
+.appoint .form label .input:placeholder-shown + span {
+  top: 15px;
+  font-size: 0.9em;
+}
+.appoint .form label .input:focus + span, .appoint .form label .input:valid + span {
+  top: 30px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+.appoint .form label .input:valid + span {
+  color: green;
+}
+.appoint .submit {
+  border: none;
+  outline: none;
+  background-color: royalblue;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  transform: 0.3s ease;
+}
+.appoint .submit:hover {
+  background-color: rgb(56, 90, 194);
+}
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}/*# sourceMappingURL=appoint.css.map */

@@ -41,8 +41,8 @@ const logOut =(e)=>{
         <img src={burger} className='burger' alt="" onClick={()=>setLinksActive(!linksActive)} />
         <div className={linksActive ? "links-active links" : "links"}>
 <Link onClick={()=>setLinksActive(!linksActive)} to="/">{t('home')}</Link>
-<Link onClick={()=>setLinksActive(!linksActive)} to="/">{t('contact')}</Link>
-<Link onClick={()=>setLinksActive(!linksActive)} to="/">{t('information')}</Link>
+<Link onClick={()=>setLinksActive(!linksActive)} to="/contact">{t('contact')}</Link>
+<Link onClick={()=>setLinksActive(!linksActive)} to="/appoint">{t('appointment')}</Link>
 <Link onClick={()=>setLinksActive(!linksActive)} to="/packages">{t('packages')}</Link>
 {/* <select name="" id="" onChange={(e)=>{
   setLang(e.target.value) ,
