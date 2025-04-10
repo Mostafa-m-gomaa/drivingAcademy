@@ -43,8 +43,8 @@ const FinalResult = () => {
         <div className="container">
             <h1>{t('final')}</h1>
             <div className="result">
-                <h2>{t('stOne')}</h2>
-                <div className="stage">
+                {/* <h2>{t('stOne')}</h2> */}
+                {/* <div className="stage">
                 {questions.map((que)=>{
           let question
 if(lang==="en"){
@@ -67,9 +67,9 @@ if(que.stage === 1){
                 )
 }
        })}
-                </div>
-                <h2>{t('stTwo')}</h2>
-                <div className="stage">
+                </div> */}
+                {/* <h2>{t('stTwo')}</h2> */}
+                {/* <div className="stage">
                 {questions.map((que)=>{
           let question
 if(lang==="en"){
@@ -92,8 +92,8 @@ if(que.stage === 2){
                 )
 }
        })}
-                </div>
-                <h2>{t('stThree')}</h2>
+                </div> */}
+                {/* <h2>{t('stThree')}</h2> */}
                 <div className="stage">
                 {questions.map((que)=>{
           let question

@@ -29,12 +29,8 @@ function App() {
   const [login, setLogin] = useState(false);
   const [token, setToken] = useState("");
   const [loader, setLoader] = useState(false);
-  // const [route, setRoute] = useState("https://api.theoriehaast.nl/api/v1");
-  // const [route, setRoute] = useState("https://api.theoriehaast.nl/api/v1");
   const route = import.meta.env.VITE_API_URL;;
   const filesRoute =import.meta.env.VITE_API_URLFILE;
-  // const [filesRoute ]=useState("https://api.theoriehaast.nl/questionsImages")
-  // const [filesRoute ]=useState("https://api.theoriehaast.nl/questionsImages")
   const [lang, setLang] = useState("en");
   const [answers,setAnswers]=useState([])
   const [exams,setExams]=useState({})

@@ -18,9 +18,9 @@
     "stageTwo": "This section consists of 12 questions, and you must answer 10 questions correctly to pass. These questions focus on traffic laws.",
     "stageThree": "This section consists of 28 questions, and you must answer 25 questions correctly to pass. This section relies on your knowledge and understanding of traffic situations, requiring you to deduce the correct answer based on the traffic scenario presented." ,
     "agree" : "Agree" ,
-    "stOne" : " Stage One",
+    "stThree" : " All questions",
+    "stOne" : " All questions",
     "stTwo" : " Stage Two",
-    "stThree" : "Stage Three" ,
      "final" : " Final Result" ,
      "appointment" : "Appointment with the translator"
 

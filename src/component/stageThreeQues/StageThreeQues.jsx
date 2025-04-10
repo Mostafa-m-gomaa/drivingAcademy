@@ -44,25 +44,6 @@ setQuesIndex(quesIndex+1)
     };
   
 
-    // const handleSubmit = () => {
-    //     console.log(`${route}/exams/submitAnswer/${param.id}`)
-
-    //     fetch(`${route}/exams/submitAnswer/${param.id}`,{
-    //       method:"PUT",
-    //       headers :{
-    // "Authorization" :`Bearer ${sessionStorage.getItem("token")}` ,
-    // "Content-Type":"application/json"
-    //       } ,
-    //         body:JSON.stringify({
-    //             lang:lang,
-    //             answers:answers
-    //         })
-    //     }
-    //     )
-    //     .then(res=>console.log(res))
-    
-    // }
-    
 
     const handleSubmit = () => {
         
@@ -106,17 +87,37 @@ history(`/finalResult`)
         });
       };
 
-    useEffect(()=>{
+//     useEffect(()=>{
 
-if(exams.stage3){
-  setQuestions(exams.stage3)
-  setStageLength(exams.stage3.length)
-}
-else{
-  history(`/profile`)
-}
+// if(exams.stage3){
+//   setQuestions(exams.stage3)
+//   setStageLength(exams.stage3.length)
+// }
+// else{
+//   history(`/profile`)
+// }
 
-      },[])
+//       },[])
+
+
+         useEffect(()=>{
+              fetch(`${route}/exams/startExam/${param.id}`,{
+                headers :{
+          "Authorization" :`Bearer ${sessionStorage.getItem("token")}`
+          }
+              })
+              .then(res=>res.json())
+              .then(data=>{
+                console.log(data)
+                if(data.stage3){
+                  // setExams(data)
+      setQuestions(data.stage3)
+      setStageLength(data.stage3.length)
+      
+                
+       }
+              })
+            },[])
       const [seconds, setSeconds] = useState(40);
       const [isActive, setIsActive] = useState(true);
 

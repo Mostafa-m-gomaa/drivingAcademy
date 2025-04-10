@@ -27,18 +27,60 @@ const StageOne = () => {
         } else {
           updatedAnswers.push({ questionId, answer });
           if(quesIndex === stageLength-1){
-history(`/stage2/${param.id}`)
+// history(`/stage2/${param.id}`)
+history(`/finalResult`)
 
           }else if(quesIndex < stageLength-1){
 setQuesIndex(quesIndex+1)
           }
         }
+        
         return updatedAnswers;
      
       });
     };
     
+        const handleSubmit = () => {
+            
+          
+            fetch(`${route}/exams/submitAnswer/${param.id}`, {
+              method: "PUT",
+              headers: {
+                "Authorization": `Bearer ${sessionStorage.getItem("token")}`,
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify({
+                lang: lang,
+                answers: answers
+              })
+            })
+            .then(res => {
+              if (!res.ok) {
+                throw new Error(`HTTP error! Status: ${res.status}`);
+              }
+              return res.json();
+            })
+            .then(data => {
+              console.log( data);
+              if(data.responseObject.questionsResult ){
+                sessionStorage.setItem("finalResult",JSON.stringify(data.responseObject.questionsResult))
+               }
+              if(data.responseObject.data === "you passed the exam"){
+    toast.success("you passed the exam")
+    sessionStorage.setItem("passed","yes")
+    history(`/finalResult`)
     
+              }
+              else{
+                toast.error("you failed the exam")
+                sessionStorage.setItem("passed","no")
+                history(`/finalResult`)
+              }
+            })
+            .catch(error => {
+              console.error("Error submitting answer:", error);
+            });
+          };
 
     useEffect(()=>{
         fetch(`${route}/exams/startExam/${param.id}`,{
@@ -98,6 +140,10 @@ setStageLength(data.stage1.length)
         setSeconds(0);
         setIsActive(false);
       };
+
+
+
+      console.log(questions)
   return (
    <div className="stage-questions">
     <div className="container">

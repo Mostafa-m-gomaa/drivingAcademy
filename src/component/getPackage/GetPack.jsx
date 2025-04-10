@@ -53,7 +53,7 @@ const GetPack = () => {
                             <h3>{title}</h3>
                             <p>{description}</p>
                             <div className="padd">{t('pass')} {exam.passDegree}</div>
-                            <Link to={`/stageOne/${exam._id}`} className="btn">{t('startEx')}</Link>
+                            <Link to={`/stageThreeQues/${exam._id}`} className="btn">{t('startEx')}</Link>
                           </div>
                      )
                 })}
